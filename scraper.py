@@ -4,12 +4,14 @@ from datetime import datetime
 
 url = "https://example.com"
 
-response = requests.get(url)
-soup = BeautifulSoup(response.text, "html.parser")
 
-title = soup.title.text
-print("Title:", title)
+def run():
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
 
-# Log save
-with open("log.txt", "a") as f:
-    f.write(f"{datetime.now()} - {title}\n")
+    title = soup.title.text
+    print("Title:", title)
+
+    # Log save
+    with open("log.txt", "a") as f:
+        f.write(f"{datetime.now()} - {title}\n")
